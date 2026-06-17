@@ -1,0 +1,1 @@
+# wealthacademy-mg.github.io
