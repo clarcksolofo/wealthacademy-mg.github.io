@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Formations numériques premium sur la richesse, l'entrepreneuriat, les revenus en ligne et le développement personnel. Commencez votre transformation aujourd'hui.">
+<meta name="keywords" content="formation en ligne, richesse, entrepreneuriat, revenus passifs, investissement, développement personnel, Madagascar">
+<title>WEALTH ACADEMY — Formations Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#C9A84C;
+  --gold-light:#F0D080;
+  --gold-dark:#A07830;
+  --black:#0A0A0A;
+  --dark:#111111;
+  --dark2:#1A1A1A;
+  --dark3:#222222;
+  --white:#FFFFFF;
+  --gray:#888888;
+  --gray-light:#CCCCCC;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;overflow-x:hidden}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--dark)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,168,76,0.2);padding:0 5%}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--gold);letter-spacing:2px;text-decoration:none}
+.logo span{color:var(--white)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:var(--gray-light);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:0.5px;transition:color .3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--black)!important;padding:10px 22px;border-radius:4px;font-weight:600!important;transition:background .3s!important}
+.nav-cta:hover{background:var(--gold-light)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--white);transition:all .3s}
+.mobile-menu{display:none;position:fixed;top:70px;left:0;right:0;background:var(--dark);border-bottom:1px solid rgba(201,168,76,0.2);padding:20px 5%;z-index:99}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;color:var(--white);text-decoration:none;padding:12px 0;border-bottom:1px solid var(--dark3);font-size:15px}
+
+/* PAGES */
+.page{display:none;padding-top:70px}
+.page.active{display:block}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(135deg,var(--black) 0%,var(--dark2) 50%,var(--black) 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 5%;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 0%,rgba(201,168,76,0.15) 0%,transparent 70%)}
+.hero-badge{display:inline-block;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.4);color:var(--gold);font-size:12px;letter-spacing:3px;padding:8px 20px;border-radius:30px;margin-bottom:30px;text-transform:uppercase}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(36px,6vw,80px);font-weight:900;line-height:1.1;margin-bottom:24px;max-width:900px}
+.hero h1 .gold{color:var(--gold)}
+.hero p{font-size:clamp(16px,2vw,20px);color:var(--gray-light);max-width:600px;margin:0 auto 40px;line-height:1.7;font-weight:300}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--black);padding:16px 36px;border-radius:4px;font-weight:700;font-size:15px;letter-spacing:1px;text-decoration:none;border:none;cursor:pointer;transition:all .3s;display:inline-block;text-transform:uppercase}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(201,168,76,0.4)}
+.btn-outline{background:transparent;color:var(--white);padding:16px 36px;border-radius:4px;font-weight:600;font-size:15px;letter-spacing:1px;text-decoration:none;border:1px solid rgba(255,255,255,0.3);cursor:pointer;transition:all .3s;display:inline-block;text-transform:uppercase}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.hero-stats{display:flex;gap:60px;justify-content:center;margin-top:70px;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--gold)}
+.stat-lbl{font-size:13px;color:var(--gray);letter-spacing:1px;margin-top:4px;text-transform:uppercase}
+.scroll-line{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:1px;height:80px;background:linear-gradient(to bottom,transparent,var(--gold))}
+
+/* SECTIONS */
+section{padding:100px 5%}
+.section-eyebrow{font-size:12px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;display:block}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,48px);font-weight:700;line-height:1.2;margin-bottom:20px}
+.section-subtitle{font-size:17px;color:var(--gray-light);line-height:1.7;max-width:600px;font-weight:300}
+.gold{color:var(--gold)}
+.divider{width:60px;height:2px;background:var(--gold);margin:24px 0}
+
+/* FORMATIONS */
+.formations-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px;margin-top:60px}
+.formation-card{background:var(--dark2);border:1px solid rgba(201,168,76,0.15);border-radius:8px;overflow:hidden;transition:all .3s;cursor:pointer}
+.formation-card:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+.card-badge{position:absolute;top:16px;right:16px;background:var(--gold);color:var(--black);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:1px}
+.card-img{height:200px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:60px}
+.card-img.c1{background:linear-gradient(135deg,#1a0a00,#3d1a00)}
+.card-img.c2{background:linear-gradient(135deg,#000d1a,#001a3d)}
+.card-img.c3{background:linear-gradient(135deg,#0a001a,#1a003d)}
+.card-img.c4{background:linear-gradient(135deg,#001a00,#003d00)}
+.card-img.c5{background:linear-gradient(135deg,#1a000a,#3d0015)}
+.card-img.c6{background:linear-gradient(135deg,#0a0a00,#1a1a00)}
+.card-body{padding:24px}
+.card-cat{font-size:11px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:10px}
+.card-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin-bottom:12px;line-height:1.3}
+.card-desc{font-size:14px;color:var(--gray);line-height:1.6;margin-bottom:20px}
+.card-footer{display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.07);padding-top:16px}
+.card-price{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--gold)}
+.card-price span{font-size:14px;color:var(--gray);font-family:'Inter',sans-serif;font-weight:400;text-decoration:line-through;margin-left:8px}
+.btn-buy{background:var(--gold);color:var(--black);border:none;padding:10px 20px;border-radius:4px;font-weight:700;font-size:13px;cursor:pointer;transition:all .3s;letter-spacing:0.5px}
+.btn-buy:hover{background:var(--gold-light)}
+.card-meta{display:flex;gap:16px;margin-bottom:16px;font-size:13px;color:var(--gray)}
+.card-meta span{display:flex;align-items:center;gap:5px}
+
+/* FORMATION DETAIL */
+.formation-detail{padding:100px 5%}
+.detail-hero{background:var(--dark2);border:1px solid rgba(201,168,76,0.2);border-radius:12px;padding:50px;margin-bottom:40px;display:grid;grid-template-columns:1fr 350px;gap:50px;align-items:start}
+.detail-badge{display:inline-block;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);color:var(--gold);font-size:11px;letter-spacing:2px;padding:6px 16px;border-radius:20px;margin-bottom:20px;text-transform:uppercase}
+.detail-title{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,46px);font-weight:700;margin-bottom:20px;line-height:1.2}
+.detail-desc{font-size:16px;color:var(--gray-light);line-height:1.8;margin-bottom:30px}
+.detail-meta{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:30px}
+.detail-meta-item{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--gray)}
+.detail-meta-item .icon{color:var(--gold);font-size:16px}
+.detail-card{background:var(--dark3);border:1px solid rgba(201,168,76,0.3);border-radius:8px;padding:30px;position:sticky;top:90px}
+.detail-price{font-family:'Playfair Display',serif;font-size:48px;font-weight:700;color:var(--gold);margin-bottom:6px}
+.detail-price-old{font-size:20px;color:var(--gray);text-decoration:line-through;margin-bottom:20px}
+.detail-card .btn-gold{width:100%;text-align:center;margin-bottom:12px;display:block}
+.detail-card .btn-whatsapp{width:100%;text-align:center;background:#25D366;color:#fff;padding:14px;border-radius:4px;font-weight:700;font-size:14px;text-decoration:none;display:block;transition:all .3s;margin-bottom:20px}
+.detail-card .btn-whatsapp:hover{background:#1aa852}
+.detail-includes{list-style:none;border-top:1px solid rgba(255,255,255,0.07);padding-top:20px}
+.detail-includes li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--gray-light);padding:6px 0}
+.detail-includes li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0}
+.program-section{margin-top:40px}
+.program-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;margin-bottom:24px}
+.module{background:var(--dark2);border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:20px;margin-bottom:12px;cursor:pointer;transition:border-color .3s}
+.module:hover{border-color:rgba(201,168,76,0.3)}
+.module-header{display:flex;justify-content:space-between;align-items:center}
+.module-num{font-size:12px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
+.module-name{font-size:16px;font-weight:600}
+.module-lessons{font-size:13px;color:var(--gray);margin-top:4px}
+
+/* PAYMENT MODAL */
+.modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal{background:var(--dark2);border:1px solid rgba(201,168,76,0.3);border-radius:12px;padding:40px;max-width:500px;width:100%;max-height:90vh;overflow-y:auto}
+.modal h3{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;margin-bottom:8px}
+.modal-price{color:var(--gold);font-size:36px;font-weight:700;font-family:'Playfair Display',serif;margin-bottom:24px}
+.payment-methods{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+.pay-method{border:2px solid rgba(255,255,255,0.1);border-radius:8px;padding:16px;text-align:center;cursor:pointer;transition:all .3s}
+.pay-method:hover,.pay-method.active{border-color:var(--gold);background:rgba(201,168,76,0.08)}
+.pay-method .icon{font-size:28px;margin-bottom:8px;display:block}
+.pay-method .name{font-size:13px;font-weight:600}
+.payment-detail{background:var(--dark3);border-radius:8px;padding:20px;margin-bottom:20px}
+.payment-detail p{font-size:14px;color:var(--gray-light);line-height:1.7;margin-bottom:12px}
+.crypto-address{background:var(--black);border:1px solid rgba(201,168,76,0.3);border-radius:6px;padding:12px;font-family:monospace;font-size:12px;color:var(--gold);word-break:break-all;margin-bottom:8px}
+.copy-btn{background:rgba(201,168,76,0.15);border:1px solid var(--gold);color:var(--gold);padding:8px 16px;border-radius:4px;font-size:12px;cursor:pointer;width:100%;font-weight:600;transition:all .3s}
+.copy-btn:hover{background:var(--gold);color:var(--black)}
+.whatsapp-confirm{background:#25D366;color:#fff;border:none;padding:14px;border-radius:6px;font-size:15px;font-weight:700;cursor:pointer;width:100%;margin-top:8px;transition:all .3s}
+.whatsapp-confirm:hover{background:#1aa852}
+.modal-close{position:absolute;top:16px;right:20px;background:none;border:none;color:var(--gray);font-size:24px;cursor:pointer;padding:4px 8px}
+.modal-close:hover{color:var(--white)}
+
+/* À PROPOS */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:60px}
+.about-img{background:linear-gradient(135deg,var(--dark2),var(--dark3));border:1px solid rgba(201,168,76,0.2);border-radius:12px;height:450px;display:flex;align-items:center;justify-content:center;font-size:100px}
+.about-values{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+.value-card{background:var(--dark2);border:1px solid rgba(201,168,76,0.15);border-radius:8px;padding:24px}
+.value-icon{font-size:30px;margin-bottom:12px;display:block}
+.value-title{font-weight:600;font-size:16px;margin-bottom:8px}
+.value-desc{font-size:13px;color:var(--gray);line-height:1.6}
+
+/* TÉMOIGNAGES */
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;margin-top:60px}
+.testimonial-card{background:var(--dark2);border:1px solid rgba(201,168,76,0.15);border-radius:8px;padding:30px;transition:border-color .3s}
+.testimonial-card:hover{border-color:rgba(201,168,76,0.4)}
+.stars{color:var(--gold);font-size:18px;margin-bottom:16px;letter-spacing:2px}
+.testimonial-text{font-size:15px;color:var(--gray-light);line-height:1.7;margin-bottom:24px;font-style:italic}
+.testimonial-author{display:flex;align-items:center;gap:14px}
+.author-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--gold-dark),var(--gold));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;color:var(--black);flex-shrink:0}
+.author-name{font-weight:600;font-size:15px}
+.author-role{font-size:12px;color:var(--gold);margin-top:2px}
+.author-gain{font-size:13px;color:var(--gray);margin-top:4px}
+
+/* BLOG */
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px;margin-top:60px}
+.blog-card{background:var(--dark2);border:1px solid rgba(201,168,76,0.1);border-radius:8px;overflow:hidden;transition:all .3s;cursor:pointer}
+.blog-card:hover{transform:translateY(-4px);border-color:rgba(201,168,76,0.3)}
+.blog-img{height:180px;display:flex;align-items:center;justify-content:center;font-size:50px}
+.blog-img.b1{background:linear-gradient(135deg,#0d1117,#161b22)}
+.blog-img.b2{background:linear-gradient(135deg,#0d0d1a,#1a1a2e)}
+.blog-img.b3{background:linear-gradient(135deg,#0d1a0d,#1a2e1a)}
+.blog-img.b4{background:linear-gradient(135deg,#1a0d0d,#2e1a1a)}
+.blog-body{padding:24px}
+.blog-cat{font-size:11px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:10px}
+.blog-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin-bottom:12px;line-height:1.3}
+.blog-excerpt{font-size:14px;color:var(--gray);line-height:1.6;margin-bottom:16px}
+.blog-meta{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--gray);border-top:1px solid rgba(255,255,255,0.07);padding-top:14px}
+.read-more{color:var(--gold);font-weight:600;text-decoration:none}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:60px}
+.contact-info{display:flex;flex-direction:column;gap:30px}
+.contact-item{display:flex;align-items:flex-start;gap:16px}
+.contact-icon{width:48px;height:48px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.contact-label{font-size:13px;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.contact-value{font-size:16px;font-weight:500}
+.contact-value a{color:var(--white);text-decoration:none}
+.contact-form{display:flex;flex-direction:column;gap:16px}
+.form-group{display:flex;flex-direction:column;gap:8px}
+.form-label{font-size:13px;color:var(--gray-light);font-weight:500;letter-spacing:0.5px}
+.form-input{background:var(--dark2);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:14px 16px;color:var(--white);font-size:15px;font-family:'Inter',sans-serif;transition:border-color .3s}
+.form-input:focus{outline:none;border-color:var(--gold)}
+textarea.form-input{resize:vertical;min-height:130px}
+.form-input::placeholder{color:var(--gray)}
+
+/* FAQ */
+.faq-list{max-width:800px;margin:60px auto 0}
+.faq-item{border-bottom:1px solid rgba(255,255,255,0.07);padding:24px 0}
+.faq-q{display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:17px;font-weight:500;gap:20px}
+.faq-q::after{content:'+';color:var(--gold);font-size:24px;flex-shrink:0;transition:transform .3s}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{font-size:15px;color:var(--gray);line-height:1.8;padding-top:16px;display:none}
+.faq-item.open .faq-a{display:block}
+
+/* ESPACE MEMBRE */
+.membre-hero{text-align:center;padding:80px 5%;background:linear-gradient(135deg,var(--dark2),var(--black))}
+.membre-form{max-width:440px;margin:40px auto 0;background:var(--dark2);border:1px solid rgba(201,168,76,0.2);border-radius:12px;padding:40px}
+.membre-form h3{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;margin-bottom:8px;text-align:center}
+.membre-form p{font-size:14px;color:var(--gray);text-align:center;margin-bottom:30px}
+.member-tabs{display:flex;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:24px}
+.member-tab{flex:1;padding:12px;text-align:center;font-size:14px;font-weight:500;cursor:pointer;color:var(--gray);border-bottom:2px solid transparent;transition:all .3s}
+.member-tab.active{color:var(--gold);border-bottom-color:var(--gold)}
+.dashboard{padding:40px 5%}
+.dashboard-grid{display:grid;grid-template-columns:250px 1fr;gap:30px;margin-top:30px}
+.sidebar{background:var(--dark2);border:1px solid rgba(201,168,76,0.15);border-radius:8px;padding:24px;height:fit-content}
+.sidebar-avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--gold-dark),var(--gold));display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:700;color:var(--black);margin:0 auto 16px}
+.sidebar-name{text-align:center;font-weight:600;font-size:18px;margin-bottom:4px}
+.sidebar-email{text-align:center;font-size:13px;color:var(--gray);margin-bottom:24px}
+.sidebar-nav{list-style:none}
+.sidebar-nav li a{display:flex;align-items:center;gap:10px;padding:12px;color:var(--gray-light);text-decoration:none;border-radius:6px;font-size:14px;transition:all .3s}
+.sidebar-nav li a:hover,.sidebar-nav li a.active{background:rgba(201,168,76,0.1);color:var(--gold)}
+.my-courses-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.my-course-card{background:var(--dark2);border:1px solid rgba(201,168,76,0.15);border-radius:8px;overflow:hidden}
+.my-course-img{height:140px;display:flex;align-items:center;justify-content:center;font-size:50px}
+.my-course-body{padding:20px}
+.progress-bar{height:4px;background:var(--dark3);border-radius:2px;margin:12px 0 6px}
+.progress-fill{height:100%;background:var(--gold);border-radius:2px}
+.progress-text{font-size:12px;color:var(--gray)}
+.btn-continue{display:block;text-align:center;background:var(--gold);color:var(--black);padding:10px;border-radius:4px;font-weight:700;font-size:13px;text-decoration:none;margin-top:14px;transition:background .3s}
+.btn-continue:hover{background:var(--gold-light)}
+
+/* FOOTER */
+footer{background:var(--dark2);border-top:1px solid rgba(201,168,76,0.15);padding:60px 5% 30px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:50px;margin-bottom:50px}
+.footer-brand .logo{font-size:24px;display:block;margin-bottom:16px}
+.footer-desc{font-size:14px;color:var(--gray);line-height:1.7;max-width:280px}
+.footer-col h4{font-size:13px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:20px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul li a{font-size:14px;color:var(--gray);text-decoration:none;transition:color .3s}
+.footer-col ul li a:hover{color:var(--white)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.05);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--gray);flex-wrap:wrap;gap:12px}
+.whatsapp-float{position:fixed;bottom:30px;right:30px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;z-index:50;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:all .3s}
+.whatsapp-float:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(37,211,102,0.6)}
+
+/* BANNER */
+.promo-banner{background:linear-gradient(135deg,var(--gold-dark),var(--gold));padding:14px 5%;text-align:center;font-size:14px;font-weight:600;color:var(--black);letter-spacing:0.5px}
+.promo-banner a{color:var(--black);text-decoration:underline}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .about-grid,.contact-grid,.dashboard-grid{grid-template-columns:1fr}
+  .detail-hero{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .about-values{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .footer-grid{grid-template-columns:1fr}
+  .payment-methods{grid-template-columns:1fr}
+  .hero-stats{gap:30px}
+  section{padding:70px 5%}
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{animation:fadeUp .7s ease forwards}
+.fade-up-delay{animation:fadeUp .7s .2s ease both}
+.fade-up-delay2{animation:fadeUp .7s .4s ease both}
+@keyframes shimmer{0%,100%{opacity:1}50%{opacity:0.7}}
+.shimmer{animation:shimmer 2s infinite}
+</style>
+</head>
+<body>
+
+<div class="promo-banner">🔥 OFFRE LIMITÉE : -50% sur toutes les formations ce mois-ci ! <a href="#" onclick="showPage('formations')">Voir les formations</a></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo" onclick="showPage('home')">WEALTH<span>ACADEMY</span></a>
+    <ul class="nav-links">
+      <li><a href="#" onclick="showPage('home')">Accueil</a></li>
+      <li><a href="#" onclick="showPage('formations')">Formations</a></li>
+      <li><a href="#" onclick="showPage('about')">À Propos</a></li>
+      <li><a href="#" onclick="showPage('testimonials')">Témoignages</a></li>
+      <li><a href="#" onclick="showPage('blog')">Blog</a></li>
+      <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+      <li><a href="#" onclick="showPage('membre')" class="nav-cta">Espace Membre</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#" onclick="showPage('home');toggleMenu()">🏠 Accueil</a>
+  <a href="#" onclick="showPage('formations');toggleMenu()">📚 Formations</a>
+  <a href="#" onclick="showPage('about');toggleMenu()">ℹ️ À Propos</a>
+  <a href="#" onclick="showPage('testimonials');toggleMenu()">⭐ Témoignages</a>
+  <a href="#" onclick="showPage('blog');toggleMenu()">📝 Blog</a>
+  <a href="#" onclick="showPage('faq');toggleMenu()">❓ FAQ</a>
+  <a href="#" onclick="showPage('contact');toggleMenu()">📞 Contact</a>
+  <a href="#" onclick="showPage('membre');toggleMenu()">👤 Espace Membre</a>
+</div>
+
+<!-- ===== PAGE ACCUEIL ===== -->
+<div id="page-home" class="page active">
+  <section class="hero">
+    <div>
+      <div class="hero-badge shimmer">✦ La Formation Premium de Madagascar ✦</div>
+      <h1 class="fade-up">Transformez Votre Vie<br>Grâce à la <span class="gold">Richesse</span><br>Numérique</h1>
+      <p class="fade-up-delay">Apprenez à générer des revenus en ligne, investir intelligemment et bâtir votre liberté financière — même en partant de zéro.</p>
+      <div class="hero-btns fade-up-delay2">
+        <a href="#" class="btn-gold" onclick="showPage('formations')">Commencer à Apprendre</a>
+        <a href="#" class="btn-outline" onclick="showPage('about')">Notre Mission</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">500+</div><div class="stat-lbl">Étudiants</div></div>
+        <div class="stat"><div class="stat-num">12</div><div class="stat-lbl">Formations</div></div>
+        <div class="stat"><div class="stat-num">98%</div><div class="stat-lbl">Satisfaction</div></div>
+        <div class="stat"><div class="stat-num">$50K+</div><div class="stat-lbl">Générés par nos élèves</div></div>
+      </div>
+    </div>
+    <div class="scroll-line"></div>
+  </section>
+
+  <section style="padding:100px 5%;background:var(--dark2)">
+    <span class="section-eyebrow">Nos Formations</span>
+    <h2 class="section-title">Les Plus <span class="gold">Populaires</span></h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">Des formations conçues pour vous donner des résultats concrets rapidement.</p>
+    <div class="formations-grid" id="home-formations"></div>
+    <div style="text-align:center;margin-top:50px">
+      <a href="#" class="btn-gold" onclick="showPage('formations')">Voir Toutes les Formations</a>
+    </div>
+  </section>
+
+  <section style="background:linear-gradient(135deg,rgba(201,168,76,0.08),rgba(201,168,76,0.03));padding:100px 5%">
+    <div style="max-width:800px;margin:0 auto;text-align:center">
+      <span class="section-eyebrow">Pourquoi Nous Choisir</span>
+      <h2 class="section-title">Votre <span class="gold">Succès</span> est Notre Priorité</h2>
+      <div class="divider" style="margin:24px auto"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:24px;margin-top:60px">
+      <div class="value-card">
+        <span class="value-icon">🎯</span>
+        <div class="value-title">Résultats Garantis</div>
+        <div class="value-desc">Des méthodes testées et prouvées par des centaines d'élèves à Madagascar et en Afrique.</div>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">📱</span>
+        <div class="value-title">Accès à Vie</div>
+        <div class="value-desc">Achetez une fois, accédez pour toujours. Mises à jour gratuites incluses à vie.</div>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">💬</span>
+        <div class="value-title">Support WhatsApp</div>
+        <div class="value-desc">Notre équipe vous répond en moins de 24h sur WhatsApp pour toutes vos questions.</div>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">🌍</span>
+        <div class="value-title">Communauté Active</div>
+        <div class="value-desc">Rejoignez une communauté de 500+ entrepreneurs qui s'entraident et progressent ensemble.</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:100px 5%">
+    <span class="section-eyebrow">Témoignages</span>
+    <h2 class="section-title">Ce Que Disent Nos <span class="gold">Élèves</span></h2>
+    <div class="divider"></div>
+    <div class="testimonials-grid" id="home-testimonials"></div>
+    <div style="text-align:center;margin-top:50px">
+      <a href="#" class="btn-outline" onclick="showPage('testimonials')">Voir Tous les Témoignages</a>
+    </div>
+  </section>
+
+  <section style="background:linear-gradient(135deg,var(--gold-dark),var(--gold));padding:80px 5%;text-align:center">
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,46px);font-weight:700;color:var(--black);margin-bottom:20px">Prêt à Changer Votre Vie ?</h2>
+    <p style="font-size:18px;color:rgba(0,0,0,0.75);max-width:500px;margin:0 auto 36px;font-weight:300">Rejoignez 500+ élèves qui transforment leur vie grâce à nos formations premium.</p>
+    <a href="#" class="btn-gold" style="background:var(--black);color:var(--gold);padding:18px 48px" onclick="showPage('formations')">Rejoindre la Communauté →</a>
+  </section>
+</div>
+
+<!-- ===== PAGE FORMATIONS ===== -->
+<div id="page-formations" class="page">
+  <section style="padding:80px 5% 40px;text-align:center;background:var(--dark2)">
+    <span class="section-eyebrow">Catalogue Complet</span>
+    <h1 class="section-title">Nos <span class="gold">Formations</span> Premium</h1>
+    <div class="divider" style="margin:20px auto"></div>
+    <p class="section-subtitle" style="margin:0 auto">Des formations pratiques pour générer des revenus réels rapidement.</p>
+  </section>
+  <section style="padding:60px 5%">
+    <div class="formations-grid" id="all-formations"></div>
+  </section>
+</div>
+
+<!-- ===== PAGE DETAIL FORMATION ===== -->
+<div id="page-detail" class="page">
+  <div class="formation-detail" id="detail-content"></div>
+</div>
+
+<!-- ===== PAGE À PROPOS ===== -->
+<div id="page-about" class="page">
+  <section style="padding:80px 5%;background:var(--dark2);text-align:center">
+    <span class="section-eyebrow">Notre Histoire</span>
+    <h1 class="section-title">À <span class="gold">Propos</span> de Nous</h1>
+    <div class="divider" style="margin:20px auto"></div>
+    <p class="section-subtitle" style="margin:0 auto">Nous croyons que chaque personne mérite d'accéder à la liberté financière.</p>
+  </section>
+  <section style="padding:80px 5%">
+    <div class="about-grid">
+      <div>
+        <span class="section-eyebrow">Notre Mission</span>
+        <h2 class="section-title">Démocratiser la <span class="gold">Richesse</span></h2>
+        <div class="divider"></div>
+        <p style="font-size:16px;color:var(--gray-light);line-height:1.8;margin-bottom:20px">WEALTH ACADEMY est née d'une conviction simple : <strong>tout le monde peut atteindre la liberté financière</strong> avec les bonnes connaissances et les bonnes méthodes.</p>
+        <p style="font-size:16px;color:var(--gray-light);line-height:1.8;margin-bottom:20px">Fondée par des entrepreneurs ayant réussi à générer des revenus en ligne depuis Madagascar, notre académie propose des formations ultra-pratiques basées sur des résultats réels.</p>
+        <p style="font-size:16px;color:var(--gray-light);line-height:1.8;margin-bottom:30px">Notre engagement : vous donner les outils pour générer vos premiers revenus en ligne dans les 30 jours suivant votre inscription.</p>
+        <a href="#" class="btn-gold" onclick="showPage('formations')">Voir Nos Formations</a>
+      </div>
+      <div class="about-img">🏆</div>
+    </div>
+    <div style="margin-top:80px">
+      <h3 style="font-family:'Playfair Display',serif;font-size:30px;font-weight:700;margin-bottom:40px;text-align:center">Nos <span class="gold">Valeurs</span></h3>
+      <div class="about-values">
+        <div class="value-card"><span class="value-icon">💎</span><div class="value-title">Excellence</div><div class="value-desc">Chaque formation est conçue avec soin pour délivrer le maximum de valeur.</div></div>
+        <div class="value-card"><span class="value-icon">🤝</span><div class="value-title">Intégrité</div><div class="value-desc">Nous partageons uniquement des méthodes que nous avons testées nous-mêmes.</div></div>
+        <div class="value-card"><span class="value-icon">🚀</span><div class="value-title">Action</div><div class="value-desc">Nos formations sont orientées résultats — pas de théorie inutile.</div></div>
+        <div class="value-card"><span class="value-icon">🌱</span><div class="value-title">Croissance</div><div class="value-desc">Nous évoluons constamment pour vous offrir les dernières stratégies qui marchent.</div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== PAGE TÉMOIGNAGES ===== -->
+<div id="page-testimonials" class="page">
+  <section style="padding:80px 5%;background:var(--dark2);text-align:center">
+    <span class="section-eyebrow">Preuves Réelles</span>
+    <h1 class="section-title">Ils ont <span class="gold">Réussi</span></h1>
+    <div class="divider" style="margin:20px auto"></div>
+    <p class="section-subtitle" style="margin:0 auto">Des résultats concrets obtenus par nos élèves après nos formations.</p>
+  </section>
+  <section style="padding:80px 5%">
+    <div class="testimonials-grid" id="all-testimonials"></div>
+  </section>
+</div>
+
+<!-- ===== PAGE BLOG ===== -->
+<div id="page-blog" class="page">
+  <section style="padding:80px 5%;background:var(--dark2);text-align:center">
+    <span class="section-eyebrow">Nos Articles</span>
+    <h1 class="section-title">Le <span class="gold">Blog</span> de la Richesse</h1>
+    <div class="divider" style="margin:20px auto"></div>
+    <p class="section-subtitle" style="margin:0 auto">Stratégies, conseils et insights pour accélérer votre liberté financière.</p>
+  </section>
+  <section style="padding:60px 5%">
+    <div class="blog-grid" id="blog-list"></div>
+  </section>
+</div>
+
+<!-- ===== PAGE CONTACT ===== -->
+<div id="page-contact" class="page">
+  <section style="padding:80px 5%;background:var(--dark2);text-align:center">
+    <span class="section-eyebrow">Nous Contacter</span>
+    <h1 class="section-title">Parlons de Votre <span class="gold">Succès</span></h1>
+    <div class="divider" style="margin:20px auto"></div>
+  </section>
+  <section style="padding:80px 5%">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3 style="font-family:'Playfair Display',serif;font-size:28px;font-weight:700;margin-bottom:10px">On est là pour <span class="gold">vous aider</span></h3>
+        <p style="font-size:15px;color:var(--gray);line-height:1.7;margin-bottom:30px">Que ce soit pour choisir la bonne formation ou pour toute autre question, notre équipe répond en moins de 24h.</p>
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div><div class="contact-label">WhatsApp (Principal)</div><div class="contact-value"><a href="https://wa.me/261038578211" target="_blank">038 578 211</a></div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">💬</div>
+          <div><div class="contact-label">Réponse sous</div><div class="contact-value">24 heures</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🌍</div>
+          <div><div class="contact-label">Disponible pour</div><div class="contact-value">Madagascar & Monde entier</div></div>
+        </div>
+        <a href="https://wa.me/261038578211?text=Bonjour, je suis intéressé par vos formations" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:14px 24px;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px;margin-top:10px;transition:all .3s">💬 Écrire sur WhatsApp</a>
+      </div>
+      <div>
+        <form class="contact-form" onsubmit="submitContact(event)">
+          <div class="form-group">
+            <label class="form-label">Votre nom</label>
+            <input class="form-input" type="text" placeholder="Ex: Jean Rakoto" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">WhatsApp / Téléphone</label>
+            <input class="form-input" type="tel" placeholder="034 XX XXX XX" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Formation qui vous intéresse</label>
+            <select class="form-input">
+              <option value="">Choisir une formation...</option>
+              <option>Revenus Passifs Online</option>
+              <option>Crypto & Investissement</option>
+              <option>Dropshipping Pro</option>
+              <option>Freedom Business</option>
+              <option>Mindset Millionnaire</option>
+              <option>Autre / Pas encore décidé</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Votre message</label>
+            <textarea class="form-input" placeholder="Dites-nous comment on peut vous aider..." required></textarea>
+          </div>
+          <button type="submit" class="btn-gold" style="width:100%;padding:16px;font-size:15px">Envoyer le Message →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== PAGE FAQ ===== -->
+<div id="page-faq" class="page">
+  <section style="padding:80px 5%;background:var(--dark2);text-align:center">
+    <span class="section-eyebrow">Questions Fréquentes</span>
+    <h1 class="section-title">F<span class="gold">A</span>Q</h1>
+    <div class="divider" style="margin:20px auto"></div>
+  </section>
+  <section style="padding:80px 5%">
+    <div class="faq-list">
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Comment accéder à ma formation après l'achat ?</div>
+        <div class="faq-a">Après votre paiement, vous recevez immédiatement votre accès par WhatsApp au numéro 038578211. Vous pouvez accéder à votre espace membre sur ce site ou recevoir les fichiers directement.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Quels sont les modes de paiement acceptés ?</div>
+        <div class="faq-a">Nous acceptons : USDT (crypto), MVola, Orange Money, et PayPal. Minimum 1$ pour activer votre accès. Contactez-nous sur WhatsApp 038578211 pour plus de détails.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Les formations sont-elles adaptées aux débutants ?</div>
+        <div class="faq-a">Absolument ! Toutes nos formations sont conçues pour partir de zéro. Vous n'avez besoin d'aucune expérience préalable — juste la motivation de changer votre vie.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">En combien de temps vais-je voir des résultats ?</div>
+        <div class="faq-a">Nos élèves génèrent leurs premiers revenus en 2 à 8 semaines selon la formation choisie et leur engagement. Nous vous guidons pas à pas pour aller le plus vite possible.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Y a-t-il un remboursement si je ne suis pas satisfait ?</div>
+        <div class="faq-a">Oui ! Nous offrons une garantie de 7 jours. Si vous n'êtes pas satisfait, contactez-nous sur WhatsApp dans les 7 jours suivant votre achat et nous vous remboursons intégralement.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Puis-je accéder aux formations depuis mon téléphone ?</div>
+        <div class="faq-a">Oui, toutes nos formations sont 100% compatibles mobile. Vous pouvez apprendre depuis votre smartphone, tablette ou ordinateur, à tout moment.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Y a-t-il un accompagnement après la formation ?</div>
+        <div class="faq-a">Oui ! Vous accédez à notre groupe WhatsApp exclusif avec d'autres élèves et nos formateurs. Nous répondons à vos questions et vous aidons jusqu'à vos premiers résultats.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Comment payer en USDT ?</div>
+        <div class="faq-a">Envoyez le montant exact en USDT (réseau TRX) à l'adresse : TWGmhzmFqXzNz4mNWZ2YGV2W1oDPBALSVs — puis envoyez la capture d'écran de la transaction sur WhatsApp 038578211 pour activer votre accès immédiatement.</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:60px;background:var(--dark2);border:1px solid rgba(201,168,76,0.2);border-radius:12px;padding:40px">
+      <h3 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:12px">Vous avez d'autres questions ?</h3>
+      <p style="color:var(--gray);margin-bottom:24px">Notre équipe est disponible 7j/7 sur WhatsApp</p>
+      <a href="https://wa.me/261038578211" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:700">💬 038 578 211</a>
+    </div>
+  </section>
+</div>
+
+<!-- ===== ESPACE MEMBRE ===== -->
+<div id="page-membre" class="page">
+  <div id="login-view">
+    <div class="membre-hero">
+      <span class="section-eyebrow">Accès Exclusif</span>
+      <h1 class="section-title">Espace <span class="gold">Membre</span></h1>
+      <p style="font-size:16px;color:var(--gray);margin-top:12px">Accédez à vos formations achetées</p>
+    </div>
+    <div class="membre-form">
+      <h3>Connexion</h3>
+      <p>Entrez vos identifiants pour accéder à vos formations</p>
+      <div class="member-tabs">
+        <div class="member-tab active" onclick="switchMemberTab('login')">Connexion</div>
+        <div class="member-tab" onclick="switchMemberTab('register')">Inscription</div>
+      </div>
+      <div id="login-form">
+        <div class="form-group" style="margin-bottom:16px">
+          <label class="form-label">WhatsApp / Email</label>
+          <input class="form-input" type="text" placeholder="038XXXXXXX">
+        </div>
+        <div class="form-group" style="margin-bottom:24px">
+          <label class="form-label">Code d'accès</label>
+          <input class="form-input" type="password" placeholder="••••••••">
+        </div>
+        <button class="btn-gold" style="width:100%;padding:14px;font-size:15px" onclick="loginMember()">Se Connecter</button>
+        <p style="text-align:center;margin-top:16px;font-size:13px;color:var(--gray)">Pas encore de compte ? <a href="#" style="color:var(--gold)" onclick="switchMemberTab('register')">S'inscrire</a></p>
+      </div>
+      <div id="register-form" style="display:none">
+        <div class="form-group" style="margin-bottom:16px">
+          <label class="form-label">Votre nom complet</label>
+          <input class="form-input" type="text" placeholder="Jean Rakoto">
+        </div>
+        <div class="form-group" style="margin-bottom:16px">
+          <label class="form-label">Numéro WhatsApp</label>
+          <input class="form-input" type="tel" placeholder="038XXXXXXX">
+        </div>
+        <div class="form-group" style="margin-bottom:24px">
+          <label class="form-label">Créer un code d'accès</label>
+          <input class="form-input" type="password" placeholder="Minimum 6 caractères">
+        </div>
+        <button class="btn-gold" style="width:100%;padding:14px;font-size:15px" onclick="loginMember()">Créer mon Compte</button>
+        <p style="text-align:center;margin-top:16px;font-size:13px;color:var(--gray)">Après inscription, contactez-nous sur WhatsApp <a href="https://wa.me/261038578211" style="color:var(--gold)" target="_blank">038578211</a> pour activer votre accès.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="dashboard-view" style="display:none">
+    <div class="dashboard">
+      <h2 style="font-family:'Playfair Display',serif;font-size:32px;font-weight:700">Bienvenue, <span class="gold">Jean</span> 👋</h2>
+      <div class="dashboard-grid">
+        <div class="sidebar">
+          <div class="sidebar-avatar">J</div>
+          <div class="sidebar-name">Jean Rakoto</div>
+          <div class="sidebar-email">038578211</div>
+          <ul class="sidebar-nav">
+            <li><a href="#" class="active">📚 Mes Formations</a></li>
+            <li><a href="#">🏆 Mes Certificats</a></li>
+            <li><a href="#">📊 Ma Progression</a></li>
+            <li><a href="#">⚙️ Mon Compte</a></li>
+            <li><a href="#" onclick="logoutMember()">🚪 Déconnexion</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:24px">Mes <span class="gold">Formations</span></h3>
+          <div class="my-courses-grid">
+            <div class="my-course-card">
+              <div class="my-course-img c1">💰</div>
+              <div class="my-course-body">
+                <div class="card-cat">Revenus en ligne</div>
+                <div class="card-title" style="font-size:16px">Revenus Passifs Online</div>
+                <div class="progress-bar"><div class="progress-fill" style="width:65%"></div></div>
+                <div class="progress-text">65% complété • Module 7/12</div>
+                <a href="#" class="btn-continue">Continuer →</a>
+              </div>
+            </div>
+            <div class="my-course-card">
+              <div class="my-course-img c2">₿</div>
+              <div class="my-course-body">
+                <div class="card-cat">Crypto</div>
+                <div class="card-title" style="font-size:16px">Crypto & Investissement</div>
+                <div class="progress-bar"><div class="progress-fill" style="width:30%"></div></div>
+                <div class="progress-text">30% complété • Module 3/10</div>
+                <a href="#" class="btn-continue">Continuer →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODAL PAIEMENT ===== -->
+<div class="modal-overlay" id="payment-modal">
+  <div class="modal" style="position:relative">
+    <button class="modal-close" onclick="closePayment()">✕</button>
+    <h3>Paiement Sécurisé</h3>
+    <p style="font-size:14px;color:var(--gray);margin-bottom:16px" id="pay-formation-name">Revenus Passifs Online</p>
+    <div class="modal-price" id="pay-price">$19</div>
+    <p style="font-size:13px;color:var(--gray);margin-bottom:20px">Accès immédiat après confirmation du paiement</p>
+
+    <p style="font-size:13px;font-weight:600;margin-bottom:12px;color:var(--gray-light)">Choisissez votre mode de paiement :</p>
+    <div class="payment-methods">
+      <div class="pay-method active" onclick="selectPayMethod(this,'usdt')">
+        <span class="icon">₮</span>
+        <div class="name">USDT Crypto</div>
+      </div>
+      <div class="pay-method" onclick="selectPayMethod(this,'mvola')">
+        <span class="icon">📱</span>
+        <div class="name">MVola</div>
+      </div>
+      <div class="pay-method" onclick="selectPayMethod(this,'orange')">
+        <span class="icon">🟠</span>
+        <div class="name">Orange Money</div>
+      </div>
+      <div class="pay-method" onclick="selectPayMethod(this,'paypal')">
+        <span class="icon">🅿️</span>
+        <div class="name">PayPal</div>
+      </div>
+    </div>
+
+    <div class="payment-detail" id="pay-detail">
+      <p><strong style="color:var(--white)">Paiement USDT (TRC20)</strong><br>Envoyez exactement <span id="pay-amount-usdt" style="color:var(--gold);font-weight:700">$19 USDT</span> à cette adresse (réseau TRX uniquement) :</p>
+      <div class="crypto-address">TWGmhzmFqXzNz4mNWZ2YGV2W1oDPBALSVs</div>
+      <button class="copy-btn" onclick="copyAddress()">📋 Copier l'adresse</button>
+      <p style="margin-top:12px;font-size:13px;color:var(--gray)">⚡ Minimum : $1 USDT pour activer l'accès</p>
+    </div>
+
+    <button class="whatsapp-confirm" onclick="confirmPayment()">
+      💬 Confirmer le paiement sur WhatsApp 038578211
+    </button>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="logo" onclick="showPage('home')">WEALTH<span>ACADEMY</span></a>
+      <p class="footer-desc">La première académie de formations numériques premium de Madagascar. Transformez votre vie grâce à nos formations sur la richesse et l'entrepreneuriat.</p>
+      <div style="margin-top:20px">
+        <a href="https://wa.me/261038578211" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px">💬 038 578 211</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Formations</h4>
+      <ul>
+        <li><a href="#" onclick="showPage('formations')">Revenus Passifs</a></li>
+        <li><a href="#" onclick="showPage('formations')">Crypto & Investissement</a></li>
+        <li><a href="#" onclick="showPage('formations')">Dropshipping</a></li>
+        <li><a href="#" onclick="showPage('formations')">Freedom Business</a></li>
+        <li><a href="#" onclick="showPage('formations')">Mindset Millionnaire</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Liens Utiles</h4>
+      <ul>
+        <li><a href="#" onclick="showPage('about')">À Propos</a></li>
+        <li><a href="#" onclick="showPage('blog')">Blog</a></li>
+        <li><a href="#" onclick="showPage('testimonials')">Témoignages</a></li>
+        <li><a href="#" onclick="showPage('faq')">FAQ</a></li>
+        <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Paiement</h4>
+      <ul>
+        <li><a href="#">USDT (TRC20)</a></li>
+        <li><a href="#">MVola</a></li>
+        <li><a href="#">Orange Money</a></li>
+        <li><a href="#">PayPal</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 WEALTH ACADEMY — Tous droits réservés</span>
+    <span style="color:var(--gold)">Fait avec ❤️ à Madagascar</span>
+  </div>
+</footer>
+
+<a href="https://wa.me/261038578211?text=Bonjour, je suis intéressé par vos formations" target="_blank" class="whatsapp-float" title="Nous contacter sur WhatsApp">💬</a>
+
+<script>
+var WHATSAPP = '261038578211';
+var USDT_ADDRESS = 'TWGmhzmFqXzNz4mNWZ2YGV2W1oDPBALSVs';
+
+var FORMATIONS = [
+  {id:1,title:'Revenus Passifs Online',cat:'Revenus en ligne',emoji:'💰',bg:'c1',price:'$19',priceOld:'$49',desc:'Apprenez à créer des sources de revenus automatiques qui travaillent pour vous 24h/24, même pendant que vous dormez.',longDesc:'La formation la plus complète sur les revenus passifs en ligne. Vous découvrirez les meilleures stratégies pour créer des revenus automatiques depuis Madagascar : affiliation, vente de produits numériques, dropshipping et bien plus.',modules:['Introduction aux revenus passifs','Affiliation & commission','Créer et vendre des ebooks','YouTube & revenus publicitaires','Dropshipping simplifié','Automatisation avancée'],duration:'8 heures',lessons:'24 leçons',level:'Débutant',badge:'⭐ BEST SELLER'},
+  {id:2,title:'Crypto & Investissement',cat:'Investissement',emoji:'₿',bg:'c2',price:'$29',priceOld:'$79',desc:'Maîtrisez les cryptomonnaies et apprenez à investir intelligemment pour multiplier votre capital.',longDesc:'Formation complète sur les cryptomonnaies et l investissement numérique. De Bitcoin à DeFi, en passant par le trading et les stratégies d investissement long terme.',modules:['Bases de la blockchain','Bitcoin & Ethereum','Analyser les marchés','Stratégies de trading','DeFi & staking','Gestion du risque'],duration:'10 heures',lessons:'30 leçons',level:'Intermédiaire',badge:'🔥 POPULAIRE'},
+  {id:3,title:'Dropshipping Pro',cat:'E-commerce',emoji:'🛒',bg:'c3',price:'$24',priceOld:'$59',desc:'Lancez votre boutique en ligne sans stock et vendez des produits dans le monde entier depuis chez vous.',longDesc:'Guide complet pour créer une boutique dropshipping rentable. De la sélection des produits à la publicité Facebook, vous aurez toutes les clés pour réussir dans l e-commerce.',modules:['Choisir sa niche','Trouver des fournisseurs','Créer sa boutique Shopify','Publicité Facebook Ads','Gestion des commandes','Scaler son business'],duration:'12 heures',lessons:'36 leçons',level:'Débutant',badge:''},
+  {id:4,title:'Freedom Business',cat:'Entrepreneuriat',emoji:'🚀',bg:'c4',price:'$39',priceOld:'$99',desc:'Construisez un business en ligne qui vous donne la liberté financière et géographique totale.',longDesc:'Formation complète pour créer un business en ligne rentable depuis zéro. Que vous vouliez devenir freelance, créer une agence ou lancer un SaaS, cette formation vous guide pas à pas.',modules:['Trouver son business model','Valider son idée','Premiers clients','Marketing digital','Automatiser et déléguer','Scaler à 6 chiffres'],duration:'15 heures',lessons:'45 leçons',level:'Tous niveaux',badge:'💎 PREMIUM'},
+  {id:5,title:'Mindset Millionnaire',cat:'Développement personnel',emoji:'🧠',bg:'c5',price:'$15',priceOld:'$39',desc:'Reprogrammez votre cerveau pour penser comme un millionnaire et attirer la réussite naturellement.',longDesc:'La transformation commence dans votre tête. Cette formation vous aide à identifier et éliminer les blocages mentaux qui vous empêchent de réussir, et à développer les habitudes des personnes riches.',modules:['Les croyances limitantes','Psychologie de la richesse','Habitudes des millionnaires','Vision et objectifs','Loi de l attraction','Passer à l action'],duration:'6 heures',lessons:'18 leçons',level:'Débutant',badge:''},
+  {id:6,title:'Marketing Digital',cat:'Marketing',emoji:'📱',bg:'c6',price:'$22',priceOld:'$55',desc:'Maîtrisez les réseaux sociaux, le SEO et la publicité en ligne pour attirer des clients automatiquement.',longDesc:'Formation pratique sur le marketing digital complet. Apprenez à utiliser Facebook, Instagram, TikTok, Google Ads et le SEO pour générer des clients et des revenus en pilote automatique.',modules:['Stratégie réseaux sociaux','Facebook & Instagram Ads','TikTok pour les business','SEO & référencement','Email marketing','Analytics & optimisation'],duration:'10 heures',lessons:'32 leçons',level:'Intermédiaire',badge:''}
+];
+
+var TESTIMONIALS = [
+  {name:'Rakoto Jean',role:'Étudiant à Tana',avatar:'R',gain:'Génère maintenant 200$/mois',text:'En 3 mois j ai généré mes premiers $200 en ligne grâce à la formation Revenus Passifs. Je recommande à 100% !',stars:5},
+  {name:'Miora Andria',role:'Maman au foyer',avatar:'M',gain:'A quitté son travail en 6 mois',text:'La formation Freedom Business a changé ma vie. Je gagne maintenant plus qu à mon ancien travail depuis chez moi.',stars:5},
+  {name:'Faniry Rabe',role:'Étudiant universitaire',avatar:'F',gain:'+$500 en crypto en 2 mois',text:'J avais peur du crypto mais la formation explique tout clairement. J ai fait +$500 en 2 mois avec les stratégies enseignées.',stars:5},
+  {name:'Sitraka Rado',role:'Entrepreneur',avatar:'S',gain:'Business à $1000/mois',text:'Le dropshipping pro m a permis de créer une boutique rentable. En 4 mois je génère $1000/mois régulièrement.',stars:5},
+  {name:'Haja Noro',role:'Developpeur freelance',avatar:'H',gain:'Doublé ses revenus freelance',text:'Le marketing digital m a aidé à trouver des clients étrangers. Mes revenus freelance ont doublé en 3 mois.',stars:5},
+  {name:'Lalaina Tiana',role:'Agent commercial',avatar:'L',gain:'50% plus productif',text:'Le mindset millionnaire m a transformé. Je suis 50% plus productif et mes revenus ont augmenté de 80%.',stars:5}
+];
+
+var ARTICLES = [
+  {cat:'Finance',emoji:'💰',bg:'b1',title:'5 Façons de Gagner de l\'Argent en Ligne depuis Madagascar',excerpt:'Découvrez les méthodes éprouvées pour générer des revenus en ligne même avec une connexion limitée.',date:'15 Juin 2026',read:'8 min'},
+  {cat:'Crypto',emoji:'₿',bg:'b2',title:'Bitcoin en 2026 : Faut-il Investir Maintenant ?',excerpt:'Analyse complète du marché crypto et stratégies pour investir intelligemment en période de volatilité.',date:'10 Juin 2026',read:'12 min'},
+  {cat:'Business',emoji:'🚀',bg:'b3',title:'Comment Créer Son Premier Business en Ligne Sans Argent',excerpt:'Guide pratique pour lancer votre activité en ligne avec un budget de départ minimal ou nul.',date:'5 Juin 2026',read:'10 min'},
+  {cat:'Mindset',emoji:'🧠',bg:'b4',title:'Les 7 Habitudes des Personnes Financièrement Libres',excerpt:'Étude de millionnaires africains et les pratiques quotidiennes qui les ont menés à la réussite.',date:'1 Juin 2026',read:'6 min'}
+];
+
+var currentPayFormation = null;
+var currentPayMethod = 'usdt';
+
+function init(){
+  renderFormations();
+  renderTestimonials();
+  renderBlog();
+}
+
+function renderFormations(){
+  var hf=document.getElementById('home-formations');
+  var af=document.getElementById('all-formations');
+  var cards=FORMATIONS.map(function(f){return formationCard(f);}).join('');
+  if(hf)hf.innerHTML=FORMATIONS.slice(0,3).map(function(f){return formationCard(f);}).join('');
+  if(af)af.innerHTML=cards;
+}
+
+function formationCard(f){
+  return '<div class="formation-card" onclick="showDetail('+f.id+')" style="position:relative">'+(f.badge?'<div class="card-badge">'+f.badge+'</div>':'')+'<div class="card-img '+f.bg+'">'+f.emoji+'</div><div class="card-body"><div class="card-cat">'+f.cat+'</div><div class="card-title">'+f.title+'</div><div class="card-desc">'+f.desc+'</div><div class="card-meta"><span>⏱ '+f.duration+'</span><span>📚 '+f.lessons+'</span><span>📊 '+f.level+'</span></div><div class="card-footer"><div class="card-price">'+f.price+'<span>'+f.priceOld+'</span></div><button class="btn-buy" onclick="event.stopPropagation();openPayment('+f.id+')">Acheter Maintenant</button></div></div></div>';
+}
+
+function showDetail(id){
+  var f=FORMATIONS.find(function(x){return x.id===id;});
+  if(!f)return;
+  currentPayFormation=f;
+  var modules=f.modules.map(function(m,i){return '<div class="module"><div class="module-header"><div><div class="module-num">Module '+(i+1)+'</div><div class="module-name">'+m+'</div></div></div></div>';}).join('');
+  document.getElementById('detail-content').innerHTML='<div style="max-width:1100px;margin:0 auto"><div style="margin-bottom:20px"><a href="#" style="color:var(--gold);text-decoration:none;font-size:14px" onclick="showPage(\'formations\')">← Retour aux formations</a></div><div class="detail-hero"><div><div class="detail-badge">'+f.cat+'</div><h1 class="detail-title">'+f.title+'</h1><p class="detail-desc">'+f.longDesc+'</p><div class="detail-meta"><div class="detail-meta-item"><span class="icon">⏱</span>'+f.duration+'</div><div class="detail-meta-item"><span class="icon">📚</span>'+f.lessons+'</div><div class="detail-meta-item"><span class="icon">📊</span>'+f.level+'</div><div class="detail-meta-item"><span class="icon">♾️</span>Accès à vie</div></div></div><div class="detail-card"><div class="detail-price">'+f.price+'</div><div class="detail-price-old">Au lieu de '+f.priceOld+'</div><a href="#" class="btn-gold" onclick="openPayment('+f.id+')">Acheter Maintenant →</a><a href="https://wa.me/'+WHATSAPP+'?text=Bonjour, je veux acheter la formation : '+f.title+'" target="_blank" class="btn-whatsapp">💬 Commander sur WhatsApp</a><ul class="detail-includes"><li>Accès immédiat après paiement</li><li>'+f.lessons+' de contenu</li><li>Accès à vie</li><li>Groupe WhatsApp exclusif</li><li>Garantie 7 jours</li><li>Certificat de completion</li></ul></div></div><div class="program-section"><div class="program-title">Programme de la <span class="gold">Formation</span></div>'+modules+'</div></div>';
+  showPage('detail');
+}
+
+function renderTestimonials(){
+  var ht=document.getElementById('home-testimonials');
+  var at=document.getElementById('all-testimonials');
+  var cards=TESTIMONIALS.map(function(t){return testimonialCard(t);}).join('');
+  if(ht)ht.innerHTML=TESTIMONIALS.slice(0,3).map(function(t){return testimonialCard(t);}).join('');
+  if(at)at.innerHTML=cards;
+}
+
+function testimonialCard(t){
+  var stars='★'.repeat(t.stars);
+  return '<div class="testimonial-card"><div class="stars">'+stars+'</div><p class="testimonial-text">"'+t.text+'"</p><div class="testimonial-author"><div class="author-avatar">'+t.avatar+'</div><div><div class="author-name">'+t.name+'</div><div class="author-role">'+t.role+'</div><div class="author-gain" style="color:var(--gold)">📈 '+t.gain+'</div></div></div></div>';
+}
+
+function renderBlog(){
+  var bl=document.getElementById('blog-list');
+  if(!bl)return;
+  bl.innerHTML=ARTICLES.map(function(a){return '<div class="blog-card"><div class="blog-img '+a.bg+'">'+a.emoji+'</div><div class="blog-body"><div class="blog-cat">'+a.cat+'</div><div class="blog-title">'+a.title+'</div><p class="blog-excerpt">'+a.excerpt+'</p><div class="blog-meta"><span>📅 '+a.date+'</span><span>⏱ '+a.read+'</span></div></div></div>';}).join('');
+}
+
+function showPage(id){
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
+  var pg=document.getElementById('page-'+id);
+  if(pg){pg.classList.add('active');window.scrollTo(0,0);}
+  if(id==='formations')renderFormations();
+  if(id==='testimonials')renderTestimonials();
+  if(id==='blog')renderBlog();
+}
+
+function openPayment(id){
+  var f=FORMATIONS.find(function(x){return x.id===id;});
+  if(!f)return;
+  currentPayFormation=f;
+  document.getElementById('pay-formation-name').textContent=f.title;
+  document.getElementById('pay-price').textContent=f.price;
+  document.getElementById('pay-amount-usdt').textContent=f.price+' USDT';
+  document.getElementById('payment-modal').classList.add('open');
+}
+
+function closePayment(){
+  document.getElementById('payment-modal').classList.remove('open');
+}
+
+function selectPayMethod(el,method){
+  document.querySelectorAll('.pay-method').forEach(function(m){m.classList.remove('active');});
+  el.classList.add('active');
+  currentPayMethod=method;
+  var detail=document.getElementById('pay-detail');
+  var price=currentPayFormation?currentPayFormation.price:'$19';
+  if(method==='usdt'){
+    detail.innerHTML='<p><strong style="color:#fff">Paiement USDT (TRC20)</strong><br>Envoyez <span style="color:var(--gold);font-weight:700">'+price+' USDT</span> à cette adresse (réseau TRX) :</p><div class="crypto-address">'+USDT_ADDRESS+'</div><button class="copy-btn" onclick="copyAddress()">📋 Copier l\'adresse</button><p style="margin-top:12px;font-size:13px;color:var(--gray)">⚡ Minimum : $1 USDT pour accès immédiat</p>';
+  }else if(method==='mvola'){
+    detail.innerHTML='<p><strong style="color:#fff">Paiement MVola</strong><br>Envoyez le montant en Ariary (équivalent de '+price+') au numéro :</p><div class="crypto-address" style="font-size:18px;text-align:center">038 578 211</div><p style="margin-top:12px;font-size:13px;color:var(--gray)">Nom : WEALTH ACADEMY</p>';
+  }else if(method==='orange'){
+    detail.innerHTML='<p><strong style="color:#fff">Paiement Orange Money</strong><br>Envoyez le montant en Ariary (équivalent de '+price+') au numéro :</p><div class="crypto-address" style="font-size:18px;text-align:center">038 578 211</div><p style="margin-top:12px;font-size:13px;color:var(--gray)">Nom : WEALTH ACADEMY</p>';
+  }else if(method==='paypal'){
+    detail.innerHTML='<p><strong style="color:#fff">Paiement PayPal</strong><br>Envoyez <span style="color:var(--gold);font-weight:700">'+price+'</span> via PayPal :</p><div class="crypto-address">wealthacademy.pay@gmail.com</div><p style="margin-top:12px;font-size:13px;color:var(--gray)">Note : Ajoutez le nom de la formation en objet</p>';
+  }
+}
+
+function copyAddress(){
+  var ta=document.createElement('textarea');
+  ta.value=USDT_ADDRESS;
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand('copy');
+  document.body.removeChild(ta);
+  var btn=event.target;
+  btn.textContent='✓ Copié !';
+  setTimeout(function(){btn.textContent='📋 Copier l\'adresse';},2000);
+}
+
+function confirmPayment(){
+  var f=currentPayFormation;
+  var method=['USDT','MVola','Orange Money','PayPal'][['usdt','mvola','orange','paypal'].indexOf(currentPayMethod)];
+  var msg='Bonjour, j ai effectué mon paiement '+method+' pour la formation : *'+( f?f.title:'')+'* ('+( f?f.price:'')+') — Voici ma preuve de paiement :';
+  window.open('https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(msg),'_blank');
+  closePayment();
+}
+
+function toggleMenu(){
+  var m=document.getElementById('mobile-menu');
+  m.classList.toggle('open');
+}
+
+function toggleFaq(el){
+  el.classList.toggle('open');
+}
+
+function submitContact(e){
+  e.preventDefault();
+  alert('Merci ! Nous vous contactons sous 24h sur WhatsApp.');
+}
+
+function switchMemberTab(tab){
+  document.querySelectorAll('.member-tab').forEach(function(t,i){t.classList.toggle('active',( i===0&&tab==='login')||(i===1&&tab==='register'));});
+  document.getElementById('login-form').style.display=tab==='login'?'block':'none';
+  document.getElementById('register-form').style.display=tab==='register'?'block':'none';
+}
+
+function loginMember(){
+  document.getElementById('login-view').style.display='none';
+  document.getElementById('dashboard-view').style.display='block';
+}
+
+function logoutMember(){
+  document.getElementById('login-view').style.display='block';
+  document.getElementById('dashboard-view').style.display='none';
+}
+
+document.getElementById('payment-modal').addEventListener('click',function(e){
+  if(e.target===this)closePayment();
+});
+
+init();
+</script>
+</body>
+</html>
